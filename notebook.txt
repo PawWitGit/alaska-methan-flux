@@ -1,0 +1,5 @@
+"""Jupyter notebook"""
+To start jupyter notebook use in terminal: jupyter-notebook
+
+"""Postgres"""
+localhost:5000
