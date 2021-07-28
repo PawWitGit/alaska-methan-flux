@@ -5,9 +5,11 @@ data source: https://search.earthdata.nasa.gov/search/granules?p=C1887537461-ORN
 1. App requirements:
  - Python3.8
  - Docker-compose
+ - Jupyter notebook engine
  - pip3 install pandas
  - pip3 install numpy
  - pip3 install matplotlib
+ 
 
 
    
