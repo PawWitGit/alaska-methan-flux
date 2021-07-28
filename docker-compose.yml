@@ -1,0 +1,28 @@
+version: '3'
+
+services: 
+    db:
+        image: postgres
+        restart: always
+        environment: 
+            POSTGRES_PASSWORD: "abcd123"
+        volumes: 
+            - /var/postgresql/data:/var/lib/postgresql/data
+        networks: 
+            - postgresql
+    
+    pgadmin4:
+        image: dpage/pgadmin4
+        restart: always
+        environment: 
+            PGADMIN_DEFAULT_EMAIL: "git.pawelwitala@gmail.com"
+            PGADMIN_DEFAULT_PASSWORD: "!admin1"
+        ports: 
+            - "5000:80"
+        depends_on: 
+            - db
+        networks: 
+            - postgresql
+networks: 
+    postgresql:
+        driver: bridge
