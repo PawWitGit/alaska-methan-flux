@@ -21,6 +21,16 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.pushButton_7.setFont(font)
         self.pushButton_7.setObjectName("pushButton_7")
+        self.pushButton_7.setStyleSheet(
+            "QPushButton"
+            "{"
+            "background-color : lightblue;"
+            "}"
+            "QPushButton::pressed"
+            "{"
+            "background-color : lightgreen;"
+            "}"
+        )
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(200, 35, 400, 20))
         self.label.setObjectName("label")
@@ -101,23 +111,23 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Sterowanie piecem"))
         self.pushButton_7.setText(_translate("MainWindow", "Połącz z bazą danych"))
-        self.pushButton_8.setText(_translate("MainWindow", "Temp. W Katowicach"))
-        self.pushButton_9.setText(_translate("MainWindow", "Inf. o Temp. W JSON"))
-        self.pushButton_10.setText(_translate("MainWindow", "Tryb AUTO ON"))
-        self.pushButton_11.setText(_translate("MainWindow", "Tryb Manual ON"))
-        self.pushButton_12.setText(_translate("MainWindow", "Zapisanie Temp. do DB"))
-        self.pushButton_13.setText(_translate("MainWindow", "Zamknij Aplkację"))
-        self.label.setText(_translate("MainWindow", "<-- klik"))
-        self.label_2.setText(_translate("MainWindow", "<-- klik"))
-        self.label_3.setText(_translate("MainWindow", "<-- klik"))
-        self.label_4.setText(_translate("MainWindow", "<-- klik"))
-        self.label_5.setText(_translate("MainWindow", "<-- klik"))
-        self.label_6.setText(
-            _translate(
-                "MainWindow", "Wyłącz aplikację \n przerwij sterowanie pieca z apki"
-            )
-        )
-        self.label_7.setText(_translate("MainWindow", "<-- klik"))
+        # self.pushButton_8.setText(_translate("MainWindow", "Temp. W Katowicach"))
+        # self.pushButton_9.setText(_translate("MainWindow", "Inf. o Temp. W JSON"))
+        # self.pushButton_10.setText(_translate("MainWindow", "Tryb AUTO ON"))
+        # self.pushButton_11.setText(_translate("MainWindow", "Tryb Manual ON"))
+        # self.pushButton_12.setText(_translate("MainWindow", "Zapisanie Temp. do DB"))
+        # self.pushButton_13.setText(_translate("MainWindow", "Zamknij Aplkację"))
+        # self.label.setText(_translate("MainWindow", "<-- klik"))
+        # self.label_2.setText(_translate("MainWindow", "<-- klik"))
+        # self.label_3.setText(_translate("MainWindow", "<-- klik"))
+        # self.label_4.setText(_translate("MainWindow", "<-- klik"))
+        # self.label_5.setText(_translate("MainWindow", "<-- klik"))
+        # self.label_6.setText(
+        #     _translate(
+        #         "MainWindow", "Wyłącz aplikację \n przerwij sterowanie pieca z apki"
+        #     )
+        # )
+        # self.label_7.setText(_translate("MainWindow", "<-- klik"))
 
 
 if __name__ == "__main__":

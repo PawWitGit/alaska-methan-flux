@@ -1,12 +1,5 @@
 import pandas as pd
 
-# import matplotlib as plt
-# import matplotlib.pyplot as plt
-# import numpy as np
-
-
-# kks lech jest najgorszy
-
 
 class ReadData:
     import pandas as pd
@@ -17,7 +10,7 @@ class ReadData:
     def return_data_file(self):
 
         print(
-            "You read: ",
+            "Read file: ",
             self.lake_methan_history,
             "\n",
         )
