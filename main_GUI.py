@@ -14,7 +14,7 @@ class Ui_MainWindow(object):
         """Setup MainWindow"""
 
         MainWindow.setObjectName("Badanie danych")
-        MainWindow.resize(500, 400)
+        MainWindow.resize(400, 500)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         font = QtGui.QFont()
@@ -26,18 +26,24 @@ class Ui_MainWindow(object):
         style_pushbuttons_sheet = (
             "QPushButton"
             "{"
+            "border-width: 2px;"
+            "border-radius: 8px;"
+            "padding: 4px;"
             "background-color : lightblue;"
             "}"
             "QPushButton::pressed"
             "{"
             "background-color : lightgreen;"
+            "border-width: 2px;"
+            "border-radius: 8px;"
+            "padding: 4px;"
             "}"
         )
 
-        """PushButton Return Data file"""
+        """pushbutton1 Return Data file"""
 
         self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_1.setGeometry(QtCore.QRect(20, 4, 100, 50))
+        self.pushButton_1.setGeometry(QtCore.QRect(20, 4, 120, 50))
         self.pushButton_1.setStyleSheet(style_pushbuttons_sheet)
         font = QtGui.QFont()
         self.pushButton_1.setFont(font)
@@ -45,10 +51,32 @@ class Ui_MainWindow(object):
         self.pushButton_1.setText("klik")
         self.pushButton_1.setObjectName("pushButton_1")
 
+        """pushbutton2 Return data table"""
+
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(20, 60, 120, 50))
+        self.pushButton_2.setStyleSheet(style_pushbuttons_sheet)
+        font = QtGui.QFont()
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setAutoFillBackground(True)
+        self.pushButton_2.setText("klik")
+        self.pushButton_2.setObjectName("pushButton_1")
+
+        """pushbutton3 Return max methane value"""
+
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(20, 116, 120, 50))
+        self.pushButton_3.setStyleSheet(style_pushbuttons_sheet)
+        font = QtGui.QFont()
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setAutoFillBackground(True)
+        self.pushButton_3.setText("klik")
+        self.pushButton_3.setObjectName("pushButton_3")
+
         """Console return Label"""
 
         self.label_1 = QtWidgets.QLabel(self.centralwidget)
-        self.label_1.setGeometry(QtCore.QRect(10, 300, 481, 100))
+        self.label_1.setGeometry(QtCore.QRect(10, 300, 380, 200))
         self.label_1.setObjectName("label_1")
         self.label_1.setFont(QtGui.QFont("Arial Black", 12))
         self.label_1.setStyleSheet(
@@ -59,9 +87,21 @@ class Ui_MainWindow(object):
 
         self.pushButton_1.clicked.connect(
             lambda: read_data.return_data_file()
-            or self.label_1.setText("Wczytano plik: \n" + read_data.lake_methan_history)
+            or self.label_1.setText("Load file: \n" + read_data.lake_methan_history)
         )
 
+        self.pushButton_2.clicked.connect(
+            lambda: read_data.return_data_table()
+            or self.label_1.setText(
+                read_data.lake_methan_history + ":\n" + "load view in your console"
+            )
+        )
+        self.pushButton_3.clicked.connect(
+            lambda: read_data.return_max_methane_value()
+            or self.label_1.setText(
+                read_data.lake_methan_history + ":\n" + "max methane value in console"
+            )
+        )
         """Setup Menubar and retlanslateUI"""
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -79,9 +119,9 @@ class Ui_MainWindow(object):
     def retlanslateUI(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Data Control Panel"))
-        self.pushButton_1.setText(
-            _translate("MainWindow", "Wyświetl nazwę \npliku z danymi")
-        )
+        self.pushButton_1.setText(_translate("MainWindow", "Show data file \nname"))
+        self.pushButton_2.setText(_translate("MainWindow", "Show \n data"))
+        self.pushButton_3.setText(_translate("MainWindow", "Show max\n methane value"))
         self.label_1.setText(_translate("MainWindow", "Console log"))
 
 
