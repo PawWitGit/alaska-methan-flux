@@ -9,7 +9,7 @@ class Ui_MainWindow(object):
 
         """Create read_data.py objects"""
 
-        read_data = ReadData("CH4_Flux_BigTrail_Goldstream_AK.csv")
+        read_data = ReadData("CH4_Flux_BigTrail_Goldstream_AK.csv", "0")
 
         """Setup MainWindow"""
 
@@ -20,6 +20,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         MainWindow.setStyleSheet("background-color: silver;")
+        # MainWindow.setStyleSheet("background-image:url(./file/data_image.jpg)")
 
         """Set Buttons Style sheet"""
 
@@ -73,13 +74,34 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText("klik")
         self.pushButton_3.setObjectName("pushButton_3")
 
-        """Console return Label"""
+        """pushbutton3 Return min methane value"""
+
+        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_4.setGeometry(QtCore.QRect(200, 116, 120, 50))
+        self.pushButton_4.setStyleSheet(style_pushbuttons_sheet)
+        font = QtGui.QFont()
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setAutoFillBackground(True)
+        self.pushButton_4.setText("klik")
+        self.pushButton_4.setObjectName("pushButton_4")
+
+        """Console return label"""
 
         self.label_1 = QtWidgets.QLabel(self.centralwidget)
-        self.label_1.setGeometry(QtCore.QRect(10, 300, 380, 200))
+        self.label_1.setGeometry(QtCore.QRect(10, 400, 380, 100))
         self.label_1.setObjectName("label_1")
         self.label_1.setFont(QtGui.QFont("Arial Black", 12))
         self.label_1.setStyleSheet(
+            "QLabel { background-color : white; color : black; }"
+        )
+
+        """Values console label log"""
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(10, 200, 380, 100))
+        self.label_2.setObjectName("label_2")
+        self.label_2.setFont(QtGui.QFont("Arial Black", 12))
+        self.label_2.setStyleSheet(
             "QLabel { background-color : white; color : black; }"
         )
 
@@ -96,11 +118,21 @@ class Ui_MainWindow(object):
                 read_data.lake_methan_history + ":\n" + "load view in your console"
             )
         )
+
         self.pushButton_3.clicked.connect(
             lambda: read_data.return_max_methane_value()
             or self.label_1.setText(
                 read_data.lake_methan_history + ":\n" + "max methane value in console"
             )
+            or self.label_2.setText(str(read_data.data_out))
+        )
+
+        self.pushButton_4.clicked.connect(
+            lambda: read_data.return_min_methane_value()
+            or self.label_1.setText(
+                read_data.lake_methan_history + ":\n" + "min methane value in console"
+            )
+            or self.label_2.setText(str(read_data.data_out))
         )
         """Setup Menubar and retlanslateUI"""
 
@@ -122,7 +154,9 @@ class Ui_MainWindow(object):
         self.pushButton_1.setText(_translate("MainWindow", "Show data file \nname"))
         self.pushButton_2.setText(_translate("MainWindow", "Show \n data"))
         self.pushButton_3.setText(_translate("MainWindow", "Show max\n methane value"))
+        self.pushButton_4.setText(_translate("MainWindow", "Show min\n methane value"))
         self.label_1.setText(_translate("MainWindow", "Console log"))
+        self.label_2.setText(_translate("MainWindow", "Values"))
 
 
 if __name__ == "__main__":
