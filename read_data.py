@@ -36,3 +36,9 @@ class ReadData:
         print("\n////// *** //////", "\n", self.lake_methan_history, "methane min: \n")
         self.data_out = data_info[["date", "methane"]].min()
         print(self.data_out)
+
+    def return_describe_table(self):
+
+        self.data_out = pd.read_csv(self.lake_methan_history)
+        print("\n////// *** //////", "\n", self.lake_methan_history, "methane min: \n")
+        print(self.data_out.describe())

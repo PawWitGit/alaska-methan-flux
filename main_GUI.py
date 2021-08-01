@@ -44,7 +44,7 @@ class Ui_MainWindow(object):
         """pushbutton1 Return Data file"""
 
         self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_1.setGeometry(QtCore.QRect(20, 4, 120, 50))
+        self.pushButton_1.setGeometry(QtCore.QRect(110, 4, 120, 50))
         self.pushButton_1.setStyleSheet(style_pushbuttons_sheet)
         font = QtGui.QFont()
         self.pushButton_1.setFont(font)
@@ -74,7 +74,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText("klik")
         self.pushButton_3.setObjectName("pushButton_3")
 
-        """pushbutton3 Return min methane value"""
+        """pushbutton4 Return min methane value"""
 
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_4.setGeometry(QtCore.QRect(200, 116, 120, 50))
@@ -84,6 +84,17 @@ class Ui_MainWindow(object):
         self.pushButton_4.setAutoFillBackground(True)
         self.pushButton_4.setText("klik")
         self.pushButton_4.setObjectName("pushButton_4")
+
+        """pushbutton5 Return describe table"""
+
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_5.setGeometry(QtCore.QRect(200, 60, 120, 50))
+        self.pushButton_5.setStyleSheet(style_pushbuttons_sheet)
+        font = QtGui.QFont()
+        self.pushButton_5.setFont(font)
+        self.pushButton_5.setAutoFillBackground(True)
+        self.pushButton_5.setText("klik")
+        self.pushButton_5.setObjectName("pushButton_4")
 
         """Console return label"""
 
@@ -98,7 +109,7 @@ class Ui_MainWindow(object):
         """Values console label log"""
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(10, 200, 380, 100))
+        self.label_2.setGeometry(QtCore.QRect(10, 280, 380, 100))
         self.label_2.setObjectName("label_2")
         self.label_2.setFont(QtGui.QFont("Arial Black", 12))
         self.label_2.setStyleSheet(
@@ -134,6 +145,13 @@ class Ui_MainWindow(object):
             )
             or self.label_2.setText(str(read_data.data_out))
         )
+
+        self.pushButton_5.clicked.connect(
+            lambda: read_data.return_describe_table()
+            or self.label_1.setText(
+                read_data.lake_methan_history + "\n:" + "show desribe in cosnole"
+            )
+        )
         """Setup Menubar and retlanslateUI"""
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -155,6 +173,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "Show \n data"))
         self.pushButton_3.setText(_translate("MainWindow", "Show max\n methane value"))
         self.pushButton_4.setText(_translate("MainWindow", "Show min\n methane value"))
+        self.pushButton_5.setText(_translate("MainWindow", "Show data file\ndescribe"))
         self.label_1.setText(_translate("MainWindow", "Console log"))
         self.label_2.setText(_translate("MainWindow", "Values"))
 
