@@ -9,7 +9,7 @@ class Ui_MainWindow(object):
 
         """Create read_data.py objects"""
 
-        read_data = ReadData("CH4_Flux_BigTrail_Goldstream_AK.csv", "0")
+        read_data = ReadData("methan_history.csv", "0")
 
         """Setup MainWindow"""
 
