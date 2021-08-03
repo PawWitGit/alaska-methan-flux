@@ -5,11 +5,13 @@ data source: https://search.earthdata.nasa.gov/search/granules?p=C1887537461-ORN
 1. App requirements:
  - Python3.8
  - Docker-compose
- - Jupyter notebook engine
  - pip3 install pandas
  - pip3 install numpy
  - pip3 install matplotlib
  - pip3 install pyqt5
+ - Jupyter notebook engine --> testing the scripts
+
+# App functionality
 
 App analyzes the values methane history in one from alaska lakes. 
 
